@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Avatar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="file"],
+        input[type="text"],
+        input[type="password"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Upload Avatar</h1>
+
+    <!-- Login Form -->
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/auth/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Logout Form -->
+    <div class="container">
+        <h2>Logout</h2>
+        <form action="/auth/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
+    <!-- Upload Avatar Form -->
+    <div class="container">
+        <h2>Upload Avatar</h2>
+        <form action="/avatars/upload" method="POST" enctype="multipart/form-data">
+            <label for="avatar">Choose an avatar:</label>
+            <input type="file" name="avatar" id="avatar" accept="image/*" required>
+            <label for="token">JWT Token:</label>
+            <input type="text" name="token" id="token" placeholder="Paste your token here" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+
+</html>
